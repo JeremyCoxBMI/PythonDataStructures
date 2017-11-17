@@ -23,13 +23,17 @@ def lookups( array ):
 
 if __name__ == "__main__":
 
+    NumberSteps = 2000
+
     array = []
-    for k in range(0,2000):
+    for k in range(0,NumberSteps):
+        #random chromosome number, random SNP
         array.append(  (mt.rando(25), mt.rando(100000))  )
+    (time, snps) = lookups(array)
 
-
-    print "Time to look up unsorted snps "+str(lookups(array))+" ms"
+    print "Time to look up unsorted snps "+str(time)+" ms"
 
     array.sort()
+    (time, snps) = lookups(array)
 
-    print "Time to look up sorted   snps "+str(lookups(array))+" ms"
+    print "Time to look up sorted   snps "+str(time)+" ms"
